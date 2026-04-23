@@ -78,7 +78,7 @@ TimerAuto leverages the power of the modern web:
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/yourusername/timerauto.git
+    git clone https://github.com/pgcodedev/timerauto.git
     cd timerauto
     ```
 
