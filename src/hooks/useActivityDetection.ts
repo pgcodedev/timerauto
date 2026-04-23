@@ -5,8 +5,6 @@ import * as cocoSsd from '@tensorflow-models/coco-ssd';
 import * as blazeface from '@tensorflow-models/blazeface';
 import Webcam from 'react-webcam';
 
-// How long each distraction signal must persist before triggering (ms)
-const PHONE_DELAY_MS      = 0;     // Immediate — no tolerance for phones
 const AWAY_DELAY_MS       = 8000;  // 8s missing before "Away from Desk"
 const LOOK_AWAY_DELAY_MS  = 4000;  // 4s of head-turn before "Looking Away"
 const DROWSY_DELAY_MS     = 6000;  // 6s of low face confidence before "Drowsy"
@@ -80,7 +78,6 @@ export function useActivityDetection(enabled: boolean, isNoisy: boolean = false,
 
     try {
       const video = webcamRef.current.video;
-      const now   = Date.now();
 
       const [cocoPredictions, faces] = await Promise.all([
         cocoModelRef.current.detect(video, 40, 0.1),
